@@ -8,13 +8,50 @@ var body = `
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8"/>
+<style>
+
+    h3, p {
+      text-align: center;
+      font-weight: 700;
+    }
+    .container {
+      width: 60%;
+      margin: 0 auto;
+      background: #ccc;
+      padding: 20px;
+    }
+    textarea {
+      width: 100%;
+    }
+    .btn-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .btn {
+      margin: 20px 0;
+      padding: 10px 20px;
+      background: blue;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    
+</style>
 </head>
 
 <body>
-    <form action="/message" method="post">
-        <textarea name="message" rows="5" cols="60"></textarea>
-        <input type="submit" value="Submit text"/>
-    </form>
+    <div class="container">
+      <h1>Start.ng Node Js Task</h1>
+      <h3>Please enter a message below: </h3>
+      <form action="/message" method="post">
+          <textarea name="message" rows="3"></textarea>
+          <div class="btn-container">
+            <input class="btn" type="submit" value="Submit text"/>
+          </div>
+      </form>
+    </div>
 </body>
 </html>`;
 if (req.url =='/') {
