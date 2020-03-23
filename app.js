@@ -48,7 +48,7 @@ var body = `
       <form action="/message" method="post">
           <textarea name="message" rows="3"></textarea>
           <div class="btn-container">
-            <input class="btn" type="submit" value="Submit text"/>
+            <input class="btn" type="submit" value="Submit Message"/>
           </div>
       </form>
     </div>
@@ -66,13 +66,12 @@ if (req.url = '/message'){
   let text;
   // console.log(req.url);
   req.on('data', chunk => {
-    text = chunk.toString().split('=')[1].split('+').join(' ');
+    text = chunk.toString('utf8').split('=')[1].split('+').join(' ');
     
-    fs.appendFile('message.txt', text, function (err) {
+    fs.appendFile('message.txt', `${text}\n`, function (err) {
       if (err) throw err;
       console.log('It\'s saved! in same location.');
       res.writeHead(200,{"Content-Type" : "text/html"});
-      // var myText = req.query.message;
       res.write('message saved successfuly');
       res.end();
   });
